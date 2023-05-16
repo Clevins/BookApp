@@ -1,0 +1,13 @@
+.navbarIcon {
+  @apply w-16 h-16 text-white mb-10;
+  @apply flex flex-col justify-center items-center;
+  @apply focus:ring-4  transform active:scale-75 transition-transform;
+}
+
+.navbarIcon--active {
+  @apply bg-white rounded-xl shadow-md text-[#9e6cff];
+}
+
+.navbarIcon__svg {
+  @apply h-10 w-10;
+}

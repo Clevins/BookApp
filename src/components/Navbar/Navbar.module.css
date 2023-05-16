@@ -1,0 +1,4 @@
+.navbar {
+  @apply bg-primary h-screen rounded-r-3xl w-24;
+  @apply flex flex-col justify-center items-center;
+}

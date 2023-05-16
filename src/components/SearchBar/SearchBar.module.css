@@ -1,0 +1,18 @@
+.searchBar {
+  @apply flex flex-row justify-start w-full;
+}
+
+.searchBar__icon {
+  @apply w-16 h-16 mr-5;
+  @apply flex flex-col justify-center items-center;
+  @apply bg-white rounded-xl  text-[#9e6cff];
+}
+
+.searchBar__iconSVG {
+  @apply h-10 w-10;
+}
+
+.searchBar__input {
+  @apply w-2/3 bg-transparent border-b-2;
+  @apply focus:outline-none  focus:border-primary transition-colors ease-in-out duration-200 focus:text-black;
+}
