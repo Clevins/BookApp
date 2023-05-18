@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Profile from "../Profile";
 import SearchBar from "../SearchBar";
 
 import styles from "./Header.module.css";
@@ -12,9 +13,7 @@ const Header: FC<HeaderProps> = ({ example }) => {
     <main className={styles.header}>
       <SearchBar />
 
-      <div>
-        <h1>Profile</h1>
-      </div>
+      <Profile />
     </main>
   );
 };

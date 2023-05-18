@@ -5,7 +5,31 @@ import Layout from "@/components/Layout";
 import styles from "../styles/index.module.css";
 import Header from "@/components/Header";
 
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const Home: NextPageWithLayout = () => {
+  const { data: session } = useSession();
+
+  console.log(useSession());
+
+  const testCall = () => {};
+
+  // if (session) {
+  //   return (
+  //     <>
+  //       Signed in as {session.user?.email} <br />
+  //       <button onClick={() => signOut()}>Sign out</button>
+  //       <button onClick={() => testCall()}>Test Call</button>
+  //     </>
+  //   );
+  // }
+  // return (
+  //   <>
+  //     Not signed in <br />
+  //     <button onClick={() => signIn()}>Sign in</button>
+  //   </>
+  // );
+
   return (
     <div className={styles.home}>
       <Header />
