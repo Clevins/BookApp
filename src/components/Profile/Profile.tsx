@@ -2,6 +2,8 @@ import { FC } from "react";
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
 
+import styles from "./Profile.module.css";
+
 type ProfileProps = {
   example?: string;
 };
@@ -9,12 +11,16 @@ type ProfileProps = {
 const Profile: FC<ProfileProps> = ({ example }) => {
   const { data: session } = useSession();
 
+  // console.log(session);
+  let profilePic = null;
+
   const getProfilePicture = () => {
-    if (session) {
+    if (session?.user) {
       return (
         <Image
-          src={session?.user?.image!}
+          src={session.user.image!}
           alt="Profile Picture"
+          className={styles.profilePic}
           width={50}
           height={50}
         />
@@ -26,34 +32,53 @@ const Profile: FC<ProfileProps> = ({ example }) => {
     if (session) {
       return (
         <>
-          <button onClick={() => signOut()}>Sign out</button>
+          <button className={styles.logInOut} onClick={() => signOut()}>
+            Sign out
+          </button>
         </>
       );
     }
     return (
       <>
-        <button onClick={() => signIn()}>Sign In</button>
+        <button className={styles.logInOut} onClick={() => signIn()}>
+          Sign In
+        </button>
       </>
     );
   };
 
-  if (session) {
-    return (
-      <>
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    );
-  }
+  // if (session) {
+  //   return (
+  //     <>
+  //       <button onClick={() => signOut()}>Sign out</button>
+  //     </>
+  //   );
+  // }
   return (
-    <div>
-      <div>{getProfilePicture()}</div>
-      <div>{getLoginLogoutBtn()}</div>
-    </div>
-
-    // <>
-    //   Not signed in <br />
-    //   <button onClick={() => signIn()}>Sign in</button>
-    // </>
+    <>
+      {/* {!session && (
+        <>
+          Not signed in <br />
+          <button onClick={() => signIn()}>Sign in</button>
+        </>
+      )}
+      {session && (
+        <>
+          Signed in as {session.user.email} <br />
+          <button onClick={() => signOut()}>Sign out</button>
+        </>
+      )} */}
+      {/* {session?.user ?? (
+        <Image
+          src={session.user.image!}
+          alt="Profile Picture"
+          width={50}
+          height={50}
+        />
+      )} */}
+      {getLoginLogoutBtn()}
+      {getProfilePicture()}
+    </>
   );
 };
 

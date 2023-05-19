@@ -1,0 +1,18 @@
+.shelf {
+  @apply mt-12;
+}
+
+.shelf__header {
+  @apply mb-10 text-3xl text-slate-500 font-medium;
+}
+
+.shelf__books {
+  @apply flex flex-row justify-start space-x-5;
+}
+.book {
+  @apply w-60 h-52 bg-[#DF535B] bg-opacity-60 rounded-xl p-5;
+}
+
+.book__img {
+  @apply rounded-xl;
+}

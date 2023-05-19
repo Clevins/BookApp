@@ -6,11 +6,10 @@ import styles from "../styles/index.module.css";
 import Header from "@/components/Header";
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import Shelf from "@/components/Shelf";
 
 const Home: NextPageWithLayout = () => {
   const { data: session } = useSession();
-
-  console.log(useSession());
 
   const testCall = () => {};
 
@@ -33,6 +32,7 @@ const Home: NextPageWithLayout = () => {
   return (
     <div className={styles.home}>
       <Header />
+      <Shelf />
     </div>
   );
 };
